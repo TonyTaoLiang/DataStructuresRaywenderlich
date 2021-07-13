@@ -106,6 +106,9 @@ class ViewController: UIViewController {
 
         //最小生成树
         prim()
+
+        //hash运用1
+        hashTable1()
     }
 
 }
@@ -789,5 +792,18 @@ extension ViewController{
         print("cost: \(cost)")
         print("mst:")
         print(mst)
+    }
+
+    //hashTable使用1
+    func hashTable1(){
+
+        let array = ["www.baidu.com",
+                     "www.baidu.com",
+                     "www.baidu.com",
+                     "www.aiqiyi.com",
+                     "www.aiqiyi.com",
+                     "www.tencent.com"]
+        let hash = HashTable<String>()
+        print(hash.hashSort(array: array))
     }
 }
