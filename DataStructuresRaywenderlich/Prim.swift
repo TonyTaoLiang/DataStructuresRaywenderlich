@@ -11,6 +11,7 @@ import Foundation
 //1.把原Graph上所有的顶点复制到新图。然后慢慢的用最短路径连线
 //2.每次到一个点就将此顶点的所有边（除去edge.destion已经访问过了的边，避免已经是生成树里面的边再次入堆）入堆
 //3.从堆中dequeue的时候，如果此edge.destion已经访问过了，那么直接continue，因为说明要么此边已是属于spanning的一条边，或者此边的destion已经有了一条短路径的边了
+//其实每次dequeue的都是最短的（贪婪），到最后所有的点都进了visit，也都连起来了，再dequeue的都可以直接去掉的，不用再画进mst
 
 
 class Prim<T: Hashable> {
@@ -52,7 +53,7 @@ class Prim<T: Hashable> {
         -> (cost: Double, mst: Graph) {
 
 
-        var mst: Graph = Graph()
+        let mst: Graph = Graph()
         var cost: Double = 0.0
         var visited: Set<Vertex<T>> = [] // 4
         var priorityQueue = PriorityQueue<Edge<T>>(sort: { // 5
@@ -76,6 +77,7 @@ class Prim<T: Hashable> {
         while let edge = priorityQueue.dequeue() {
 
             //从堆中dequeue的时候，如果此edge.destion已经访问过了，那么直接continue，因为说明要么此边已是属于spanning的一条边，或者此边的destion已经有了一条短路径的边了
+            //其实每次dequeue的都是最短的（贪婪），到最后所有的点都进了visit，也都连起来了，再dequeue的都可以直接去掉的，不用再画进mst
             guard !visited.contains(edge.destination) else {
                 continue
             }
