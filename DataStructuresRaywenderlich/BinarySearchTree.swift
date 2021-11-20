@@ -140,7 +140,7 @@ extension BinarySearchTree{
             //3.有2个子节点
             //为了符合二叉搜索树的左小右大的规则：首先右子树的最小值替换当前被删除的节点
             node.value = node.rightChild!.min.value
-            //将此删除节点当成root，开始删除其右子树最小节点，然后连接上去
+            //然后从当前要删除的此节点（其值已经替换为最小值）的右子树中删除这个最小值node.value.
             node.rightChild = remove(node.rightChild, node.value)
         } else if (value < node.value){
 
@@ -166,10 +166,11 @@ extension BinarySearchTree{
         if root?.leftChild == nil && root?.rightChild == nil {
             return root
         }
-
+        print("入栈\(String(describing: root?.value))")
         let leftNode = invertTree(root?.leftChild)
         let rightNode = invertTree(root?.rightChild)
 
+        print("交换\(String(describing: root?.value))")
         root?.leftChild = rightNode
         root?.rightChild = leftNode
 

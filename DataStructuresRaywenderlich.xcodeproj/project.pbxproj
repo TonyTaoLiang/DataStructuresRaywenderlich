@@ -42,8 +42,11 @@
 		3FAD4E2425EE92F70080D46C /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAD4E2325EE92F70080D46C /* TreeNode.swift */; };
 		3FAEB6662685C17F00B96144 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEB6652685C17F00B96144 /* Graph.swift */; };
 		3FAEB6682685C9B500B96144 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEB6672685C9B500B96144 /* Vertex.swift */; };
+		3FB26D3C271DBC4300AA2CB0 /* EightQueen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB26D3B271DBC4300AA2CB0 /* EightQueen.swift */; };
 		3FB767CA26934E7800D498B9 /* Dijkstra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB767C926934E7800D498B9 /* Dijkstra.swift */; };
 		3FB767CC26935ADB00D498B9 /* sampleGraph.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB767CB26935ADB00D498B9 /* sampleGraph.png */; };
+		3FB9056A2727FDB7002B9A13 /* 排列树.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB905682727FDB7002B9A13 /* 排列树.png */; };
+		3FB9056B2727FDB7002B9A13 /* 子集树.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB905692727FDB7002B9A13 /* 子集树.png */; };
 		3FBA93D32694B002008A3172 /* Prim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA93D22694B002008A3172 /* Prim.swift */; };
 		3FBA93D62694B9A2008A3172 /* sampleGraph1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FBA93D42694B9A2008A3172 /* sampleGraph1.png */; };
 		3FBA93D72694B9A2008A3172 /* sampleGraph2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FBA93D52694B9A2008A3172 /* sampleGraph2.png */; };
@@ -52,6 +55,7 @@
 		3FCA6FDD26560DC2006ACF39 /* Tries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCA6FDC26560DC2006ACF39 /* Tries.swift */; };
 		3FCE729225B12DD6006500F4 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE729125B12DD6006500F4 /* Stack.swift */; };
 		3FD30AE12697EEAC00C8EB0A /* HashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD30AE02697EEAC00C8EB0A /* HashTable.swift */; };
+		3FEC573E2734DEC900E8EC10 /* DP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC573D2734DEC900E8EC10 /* DP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,8 +117,11 @@
 		3FAD4E2325EE92F70080D46C /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		3FAEB6652685C17F00B96144 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		3FAEB6672685C9B500B96144 /* Vertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		3FB26D3B271DBC4300AA2CB0 /* EightQueen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightQueen.swift; sourceTree = "<group>"; };
 		3FB767C926934E7800D498B9 /* Dijkstra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dijkstra.swift; sourceTree = "<group>"; };
 		3FB767CB26935ADB00D498B9 /* sampleGraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sampleGraph.png; path = "alg-materials-editions-3.0/42-dijkstra-shortest-path/projects/final/dijkstra.playground/Resources/sampleGraph.png"; sourceTree = SOURCE_ROOT; };
+		3FB905682727FDB7002B9A13 /* 排列树.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排列树.png"; sourceTree = "<group>"; };
+		3FB905692727FDB7002B9A13 /* 子集树.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "子集树.png"; sourceTree = "<group>"; };
 		3FBA93D22694B002008A3172 /* Prim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prim.swift; sourceTree = "<group>"; };
 		3FBA93D42694B9A2008A3172 /* sampleGraph1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sampleGraph1.png; path = "alg-materials-editions-3.0/44-prims-spanning-tree/projects/final/prims.playground/Resources/sampleGraph1.png"; sourceTree = SOURCE_ROOT; };
 		3FBA93D52694B9A2008A3172 /* sampleGraph2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sampleGraph2.png; path = "alg-materials-editions-3.0/44-prims-spanning-tree/projects/final/prims.playground/Resources/sampleGraph2.png"; sourceTree = SOURCE_ROOT; };
@@ -123,6 +130,7 @@
 		3FCA6FDC26560DC2006ACF39 /* Tries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tries.swift; sourceTree = "<group>"; };
 		3FCE729125B12DD6006500F4 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		3FD30AE02697EEAC00C8EB0A /* HashTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTable.swift; sourceTree = "<group>"; };
+		3FEC573D2734DEC900E8EC10 /* DP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +214,8 @@
 				3FB767C926934E7800D498B9 /* Dijkstra.swift */,
 				3FBA93D22694B002008A3172 /* Prim.swift */,
 				3FD30AE02697EEAC00C8EB0A /* HashTable.swift */,
+				3FB26D3B271DBC4300AA2CB0 /* EightQueen.swift */,
+				3FEC573D2734DEC900E8EC10 /* DP.swift */,
 				3F51F49A259B196B0062BE6A /* Main.storyboard */,
 				3F51F49D259B196D0062BE6A /* Assets.xcassets */,
 				3F51F49F259B196D0062BE6A /* LaunchScreen.storyboard */,
@@ -217,6 +227,8 @@
 				3FBA93D42694B9A2008A3172 /* sampleGraph1.png */,
 				3FBA93D52694B9A2008A3172 /* sampleGraph2.png */,
 				3FB767CB26935ADB00D498B9 /* sampleGraph.png */,
+				3FB905682727FDB7002B9A13 /* 排列树.png */,
+				3FB905692727FDB7002B9A13 /* 子集树.png */,
 			);
 			path = DataStructuresRaywenderlich;
 			sourceTree = "<group>";
@@ -345,11 +357,13 @@
 				3FBA93D62694B9A2008A3172 /* sampleGraph1.png in Resources */,
 				3F41398D269D7B5B0094800A /* Merge2.jpeg in Resources */,
 				3F51F4A1259B196D0062BE6A /* LaunchScreen.storyboard in Resources */,
+				3FB9056A2727FDB7002B9A13 /* 排列树.png in Resources */,
 				3F41398E269D7B5B0094800A /* Merge1.jpeg in Resources */,
 				3FBA93D72694B9A2008A3172 /* sampleGraph2.png in Resources */,
 				3F51F49E259B196D0062BE6A /* Assets.xcassets in Resources */,
 				3F51F49C259B196B0062BE6A /* Main.storyboard in Resources */,
 				3F413990269D7F9B0094800A /* Merge3.png in Resources */,
+				3FB9056B2727FDB7002B9A13 /* 子集树.png in Resources */,
 				3FA69BB92623FDAB00012B1F /* 哈哈 12.png in Resources */,
 				3FB767CC26935ADB00D498B9 /* sampleGraph.png in Resources */,
 			);
@@ -378,6 +392,7 @@
 			files = (
 				3F51F499259B196B0062BE6A /* ViewController.swift in Sources */,
 				3F6096692622FBCF00DA1988 /* AVLTree.swift in Sources */,
+				3FB26D3C271DBC4300AA2CB0 /* EightQueen.swift in Sources */,
 				3FBD4DA2268892F0008A0A5B /* Edge.swift in Sources */,
 				3F1CD939268AB03600059CE1 /* AdjacencyList.swift in Sources */,
 				3FAA1D3A25BE61FF0070A1BE /* Queue.swift in Sources */,
@@ -388,6 +403,7 @@
 				3F84BA372677A8C100E6322D /* MergeSort.swift in Sources */,
 				3F78B8EC2680E9450014D628 /* RadixSort.swift in Sources */,
 				3F9D2A48267B00A200A5B820 /* QuickSort.swift in Sources */,
+				3FEC573E2734DEC900E8EC10 /* DP.swift in Sources */,
 				3F1CD93B268AC28000059CE1 /* AdjacencyMatrix.swift in Sources */,
 				3F6CE7FB25BFFE01002ACB9F /* DoublyLinkedList.swift in Sources */,
 				3F7DB008266FBF7600553A8E /* BubbleSort.swift in Sources */,

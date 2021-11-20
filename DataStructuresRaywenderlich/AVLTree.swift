@@ -90,7 +90,15 @@ extension AVLTree{
         
 
         let rotate = node.rightChild!
-
+        //如果旋转的中心点：以下这句就是在处理L节点
+/*       E                      S
+        / \                    / \
+       M   S     ------>      E   R
+          / \                /\   /\
+         L   R              M  L  C D
+            / \
+           C   D
+*/
         node.rightChild = rotate.leftChild
 
         rotate.leftChild = node

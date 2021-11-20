@@ -109,6 +109,32 @@ class ViewController: UIViewController {
 
         //hash运用1
         hashTable1()
+
+        //八皇后
+        eightQueenTest()
+        //01背包 回溯
+        backTrackBag()
+        //01背包 DP
+        dpBag()
+        //01背包升级
+        dpBagValue()
+        //双11购物
+        shoppingDouble11()
+        //走格子
+        dpMartix()
+        dpMartix2()
+        //莱文斯坦距离
+        LevenshteinDistanceBackTrace()
+        LevenshteinDistanceDP()
+        //最长公共子串
+        longSubstring()
+
+
+        let ss = longestPalindrome3("a")
+//        let ss = longestPalindrome3("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth")
+        print("回文\(ss)")
+
+        useIndex()
     }
 
 }
@@ -388,6 +414,10 @@ extension ViewController{
     }
 
     func invertTree(){
+
+        print("Tree before invertTree")
+
+        print(bst)
 
         let root = bst.invertTree(bst.root)
 
@@ -805,5 +835,165 @@ extension ViewController{
                      "www.tencent.com"]
         let hash = HashTable<String>()
         print(hash.hashSort(array: array))
+    }
+
+    //eightQueen
+    func eightQueenTest() {
+        var eight = EightQueen()
+        eight.eightQueen(row: 0)
+    }
+
+    func backTrackBag() {
+        let weight = [2,6,3]// 物品重量
+        let n = 3; // 物品个数
+        let w = 9; // 背包承受的最大重量
+        var eight = EightQueen()
+        eight.backTrackBag(i: 0, cw: 0, items: weight, n: n, w: w)
+        print("最后背包总重\(eight.maxvalue)")
+    }
+
+    func dpBag() {
+        let weight = [2,2,4,6,3]// 物品重量
+        let n = 5; // 物品个数
+        let w = 9; // 背包承受的最大重量
+        let eight = EightQueen()
+        let result = eight.dpBag(weight, n, w)
+        print("最后背包总重\(result)")
+    }
+
+    func dpBagValue() {
+        let weight = [2,2,4,6,3]// 物品重量
+        let value = [3,4,8,9,6]//物品价值
+        let n = 5 // 物品个数
+        let w = 9 // 背包承受的最大重量
+        let eight = EightQueen()
+        let result = eight.dpBagsValue(weight, n, w, value)
+        print("最后背包总价值\(result)")//3+8+6 
+    }
+
+    func shoppingDouble11() {
+        let weight = [2,2,4,6,3]// 购物车
+
+        let n = 5 // 物品个数
+        let w = 5 // 优惠券5元起
+        let budget = 9 //预算9元
+        let eight = EightQueen()
+        eight.shoppingDouble11(weight, n, w, budget)
+
+    }
+
+    func dpMartix() {
+
+        let martix = [
+            [1,3,5,9],
+            [2,1,3,4],
+            [5,2,6,7],
+            [6,8,4,3],
+        ]
+
+        let dp = DP()
+        let result = dp.minDestDP(martix, 4)
+        print("DP走格子最短路径状态转移表法:\(result)")
+    }
+
+    func dpMartix2() {
+
+        let martix = [
+            [1,3,5,9],
+            [2,1,3,4],
+            [5,2,6,7],
+            [6,8,4,3],
+        ]
+        var mem: [[Int]] = Array(repeating: Array(repeating: 0, count: 4), count: 4)
+        let dp = DP()
+        let result = dp.minDestDPEquation(martix, 4, 3, 3, &mem)
+        print("DP走格子最短路径状态转移方程法：\(result)")
+    }
+
+    func LevenshteinDistanceBackTrace(){
+
+        let dp = DP()
+        let s = "mitcmu"
+        let t = "mtacnu"
+        var min = Int.max
+        var current = 0
+        dp.LevenshteinDistanceBackTrace(s, t, 0, 0, &current, &min)
+        print("回溯之莱文斯坦距离\(min)")
+    }
+
+    func LevenshteinDistanceDP() {
+        let dp = DP()
+        let s = "mitcmu"
+        let t = "mtacnu"
+        let min = dp.LevenshteinDistanceDP(s, t)
+        print("DP之莱文斯坦距离\(min)")
+    }
+
+    func longSubstring() {
+        let dp = DP()
+        let max = dp.maxLongSubstring("ABCBA", "BABCA")
+        print("最长公共子串二维数组\(max)")
+        let max2 = dp.maxLongSubstring2("ABCBA", "BABCA")
+        print("最长公共子串一维数组\(max2)")
+        let max3 = dp.maxLongSubstring3("ABCBA", "BABCA")
+        print("最长公共子串一维数组优化\(max3)")
+    }
+
+    func longestPalindrome3(_ s: String) -> String {
+
+//        var res = ""
+
+        //转成数组，方便下面操作字符串的下标
+//        let sCharts = Array(s)
+        let cs = s.cString(using: .ascii)!
+        let n = strlen(cs)
+        var rng: (first: Int, second: Int) = (0, 0)
+        //优化一下,类似于最长公共子串，用一维数组倒着遍历j。如果顺着遍历就会覆盖下一层
+        var dp = Array(repeating: false, count: s.count)
+
+        for i in (0...n-1).reversed() {
+
+            for j in (i..<n).reversed() {
+                //j-1 < 3是字符串长度为0，1，2 几种特殊情况只需要判断头尾是否相等
+                dp[j] = cs[i] == cs[j] && ((j-i < 3) || dp[j-1])
+
+                //每次保存下当前最长的串
+                if dp[j] && j - i + 1 > rng.second - rng.first {
+                    //操作下标
+                    rng = (i,j)
+//                    res = String(s[i..<j+1])
+                }
+            }
+
+        }
+        return String(cString: cs[rng.0...rng.1].map{$0} + [0])
+
+    }
+
+    func useIndex(){
+
+        //1.使用Array的方式
+        let string = "abc"
+        let array = Array(string)
+        let substring = String(array[0...1])
+        print("String使用Array的方式操作: \(substring)")
+
+        //2.转换成cstring
+        //String类型虽然强大，但是对处理已知文本是ascii字符的操作很不友好。所以有时候有必要将它转换为cString进行操作。
+        /*
+         /// Returns a representation of the string as a C string
+         /// using a given encoding.
+         public func cString(using encoding: String.Encoding) -> [CChar]?
+         public typealias CChar = Int8
+         **/
+        //转成了一个数字数组
+        let cstring = string.cString(using: .ascii)!
+        let slice = cstring[0...1]
+        //由于slice是ArraySlice类型，并非单独的数组，我们创建一个新的数组来接收它，又因为cString字符串始终以0结尾，所以我们追加了数组元素0
+        let newArray = slice.map { $0 } + [0]
+        //转为string
+        let sliceString = String(cString: newArray)
+        print("String使用Cstring的方式操作: \(sliceString)")
+
     }
 }

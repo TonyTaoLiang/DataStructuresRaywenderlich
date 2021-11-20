@@ -22,10 +22,10 @@ where CollectionType.Element : Hashable{
     public func insert(_ collection : CollectionType){
 
         var current = root
-
+        //这个element比如是“happy”的“h”，“a”，“p”等等。。。。。。。
         for element in collection {
 
-            //此元素不存在就增加新节点，否则依次往下层跑
+            //此元素不存在就增加新节点，否则依次往下层跑（例如字典树已经有h，a。2个节点了就跳过）
             if current.children[element] == nil {
                 current.children[element] = Node(element, current)
             }
