@@ -130,10 +130,10 @@ class ViewController: UIViewController {
         longSubstring()
 
 
-        let ss = longestPalindrome3("a")
-//        let ss = longestPalindrome3("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth")
+        let ss = longestPalindrome4("a")
+        let sss = longestPalindrome4("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth")
         print("回文\(ss)")
-
+        print("回文\(sss)")
         useIndex()
     }
 
@@ -970,6 +970,41 @@ extension ViewController{
 
     }
 
+    //中心扩散
+    func longestPalindrome4(_ s: String) -> String {
+
+        guard s.count > 1 else {
+            return s
+        }
+
+        let sCharts = Array(s)
+        var start: Int = 0 , maxLen: Int = 0
+
+        for i in 0..<s.count {
+
+            maxPalindrome(sCharts, i, i, &start, &maxLen)
+            maxPalindrome(sCharts, i, i+1, &start, &maxLen)
+        }
+
+        return String(sCharts[start..<start+maxLen])
+    }
+
+    func maxPalindrome(_ sCharts: [Character], _ i: Int, _ j: Int, _ start: inout Int, _ maxLen: inout Int) {
+
+        var i = i, j = j
+
+        while i >= 0 && j < sCharts.count && sCharts[i] == sCharts[j]{
+
+            i -= 1
+            j += 1
+        }
+
+        if j - i - 1 > maxLen {
+            start = i + 1
+            maxLen = j - i - 1
+        }
+
+    }
     func useIndex(){
 
         //1.使用Array的方式
