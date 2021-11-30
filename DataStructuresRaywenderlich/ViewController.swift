@@ -129,12 +129,17 @@ class ViewController: UIViewController {
         //最长公共子串
         longSubstring()
 
-
+        //回文串
         let ss = longestPalindrome4("a")
         let sss = longestPalindrome4("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth")
         print("回文\(ss)")
         print("回文\(sss)")
         useIndex()
+
+        //中后序创建二叉树
+        let result = buildTree([9,3,15,20,7], [9,15,7,20,3])
+        print("中后序创建二叉树\(result)")
+
     }
 
 }
@@ -1031,4 +1036,32 @@ extension ViewController{
         print("String使用Cstring的方式操作: \(sliceString)")
 
     }
+
+    func buildTree(_ inorder: [Int], _ postorder: [Int]) -> BinaryNode<Int>? {
+
+        guard inorder.count == postorder.count else {
+            return nil
+        }
+
+        return _buildTree(inorder, 0, inorder.count - 1, postorder, 0, postorder.count - 1)
+    }
+    func _buildTree(_ inorder: [Int], _ inStart: Int, _ inEnd: Int, _ postorder: [Int], _ postStart: Int, _ postEnd: Int) -> BinaryNode<Int>? {
+
+        guard inStart <= inEnd && postStart <= postEnd else {
+            return nil
+        }
+
+        guard let rootIndex = inorder.firstIndex(of: postorder[postEnd]) else {
+            return nil
+        }
+
+        let root = BinaryNode(value: inorder[rootIndex])
+
+        root.leftChild = _buildTree(inorder, inStart, rootIndex - 1, postorder, postStart, postEnd - inEnd + rootIndex - 1)
+
+        root.rightChild = _buildTree(inorder, rootIndex + 1, inEnd, postorder, postEnd - inEnd + rootIndex, postEnd - 1)
+
+        return root
+    }
+
 }

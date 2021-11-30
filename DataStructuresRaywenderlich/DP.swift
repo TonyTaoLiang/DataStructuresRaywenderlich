@@ -187,9 +187,9 @@ struct DP {
 
      dp(i,j) 是以str1[i-1]，str2[j-1]结尾的最长公共子串的长度
      dp(i,0) dp(0,j)均为0
-     备注：(为什么不这样定义：dp(i,j) 是以str1[i-1]，str2[j-1]结尾的最长公共子串的长度？ 因为这样i，j的取值范围应该是
+     备注：(为什么不这样定义：dp(i,j) 是以str1[i]，str2[j]结尾的最长公共子串的长度？ 因为这样i，j的取值范围应该是
      i ∈ [0,str1.length)
-     j ∈ [1,str2.length),而后面转移方程dp(i,j) = dp(i-1,j-1) + 1，当求dp(0,0)的时候岂不是求dp(-1,-1),但是我们都是定义一个二维数组来画表，数组下标怎么能为负数。)
+     j ∈ [0,str2.length),而后面转移方程dp(i,j) = dp(i-1,j-1) + 1，当求dp(0,0)的时候岂不是求dp(-1,-1),但是我们都是定义一个二维数组来画表，数组下标怎么能为负数。)
     状态转移方程
     if str1[i] == str2[j] {//说明至少有一个公共子串，那么 i，j2个字符都用掉了，还能不能使公共子串更长呢，这就要看(i-1,j-1)
         dp(i,j) = dp(i-1,j-1) + 1
@@ -284,13 +284,13 @@ struct DP {
 //             if str1[str1.index(str1.startIndex, offsetBy: i-1)] != str2[str2.index(str2.startIndex, offsetBy: j-1)] {
 //                 martix[j] = 0
 //             }else{
-//                martix[j] = martix[j-1] + 1//这里martix[j-1]还是下一行的值
+//                martix[j] = martix[j-1] + 1//这里martix[j-1]还是上一行的值
 //             }
 
             if str1[i-1] != str2[j-1] {
                 martix[j] = 0
             }else{
-               martix[j] = martix[j-1] + 1//这里martix[j-1]还是下一行的值
+               martix[j] = martix[j-1] + 1//如果是从后往前遍历：这里martix[j-1]还是上一行的值
             }
 
              result = max(result, martix[j])
@@ -407,7 +407,8 @@ private extension String {
   }
 }
 
-//回文串中心扩散 ++ 递归回溯 + 李拉钩 + 其他题 + 剩余视频
+
+//最长上升子序列 ++ 递归回溯 + 李拉钩 + 其他题 + 剩余视频
 //手卷烟 + 007
 
 

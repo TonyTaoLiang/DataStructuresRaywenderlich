@@ -10,6 +10,9 @@ import Foundation
 struct MergeSort {
 
     /*
+     递推公式：merge_sort(p…r) = merge(merge_sort(p…middle),merge_sort(middle+1…r))
+     终止条件：p >= r
+
      可以看到sort的入栈顺序，当执行一次merge时，一定是有2个sort返回并有序了，如下图，sort[0,0]和sort[1,1]（递归返回的条件是start<end）都返回了，然后执行到merge，执行完merge后，sort[0,1]出栈，此时的栈顶为sort[0,2]函数，可以看出它的前半部分已经计算完，只需要计算后半部分，即第二个sort，然后再次merge，再sort[0,2]出栈。。。
      参考图片Merge1，Merge2.
      Merge2和Merge3合起来看，了解递归的每一步
