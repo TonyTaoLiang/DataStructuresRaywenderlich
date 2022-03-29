@@ -7,6 +7,26 @@
 
 import Foundation
 //个人总结：回溯和DP状态转移方程法 都是类似递归的解题思路 就是根据条件罗列所以的可能性进行递归。
+//DFS其实就是一种回溯。解决一个回溯问题，实际上就是一个决策树的遍历过程。你只需要思考 3 个问题：
+
+//1、路径：也就是已经做出的选择。（深度）
+//2、选择列表：也就是你当前可以做的选择。（每一层能做的选择）
+//3、结束条件：也就是到达决策树底层，无法再做选择的条件。
+/**
+
+ result = []
+ def backtrack(路径, 选择列表):
+ if 满足结束条件:
+ result.add(路径)
+ return
+
+ for 选择 in 选择列表:
+ 做选择
+ backtrack(路径, 选择列表)
+ 撤销选择
+
+ */
+
 //例如
 //1. 0-1背包 不装递归下backTrackBag(i: i+1, cw: cw, items: items, n: n, w: w)
              //装：递归backTrackBag(i: i+1, cw: cw+items[i], items: items, n: n, w: w)
@@ -190,7 +210,8 @@ struct EightQueen {
 
     }
 
-    //DP解决0-1背包
+
+    //DP解决0-1背包（为啥叫0-1背包，要么装1，要么不装0）
     func dpBag(_ items: Array<Int>, _ nums: Int, _ w: Int) -> Int{
 
         //一共n（物品总数）行，每一行0～w（总重限制）个状态
@@ -235,6 +256,11 @@ struct EightQueen {
 
 
     //DP解决0-1背包升级：每个物品除了重量还有价值，求最高价值
+    //还可以使用贪心：对比以下3种情况选价值最高的
+    //（1）重量主导：每次选最重的
+    //（2）价值主导：每次选最贵的
+    //（3）价值密度主导：每次选value/weight，最大的
+
     func dpBagsValue(_ weight: Array<Int>, _ nums: Int, _ w: Int, _ value: Array<Int> ) -> Int {
 
         //二维数组里面放的是价值了

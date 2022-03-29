@@ -536,8 +536,6 @@ extension ViewController{
 
         let binarySearch31 = array.binarySearch(for: 31)
 
-        print("index(of:): \(String(describing: search31))")
-        print("binarySearch(for:): \(String(describing: binarySearch31))")
     }
 
     //MARK:堆
